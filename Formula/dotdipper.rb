@@ -17,10 +17,10 @@ class Dotdipper < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/psyysp/dotdipper/releases/download/v#{version}/dotdipper-aarch64-apple-darwin.tar.gz"
-      sha256 "c213bdd7f5d154bfbafacc27d654daf1e082daab2466e054f143c4832d5c5690"
+      sha256 "783eb745c866daac0f5e0caaecea79068131362b07a48f6d273860fa50e879ca"
     else
       url "https://github.com/psyysp/dotdipper/releases/download/v#{version}/dotdipper-x86_64-apple-darwin.tar.gz"
-      sha256 "6db27cd120a903f7b69c52f1775b1e6cf7652e4a6e54f01cb2d594dc0b983bad"
+      sha256 "397be4859566fd6bf3d71c2fd4d97e75e14ea8384fbb6b10dd6e7a0d0d4025b6"
     end
   end
 
