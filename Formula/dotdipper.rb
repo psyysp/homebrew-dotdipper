@@ -11,16 +11,16 @@
 class Dotdipper < Formula
   desc "A safe, deterministic, and feature-rich dotfiles manager built in Rust"
   homepage "https://github.com/psyysp/dotdipper"
-  version "0.3.0"
+  version "0.3.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/psyysp/dotdipper/releases/download/v#{version}/dotdipper-aarch64-apple-darwin.tar.gz"
-      sha256 "dc8c9311d32c0cdf23edf66bee2e937b9a01d15aa27c594f8f1564a4e8ac2ba4"
+      sha256 "d922f1fc93c0ea48d368ea5a2078ef07ec1b21566638ff35c010bb92f9946495"
     else
       url "https://github.com/psyysp/dotdipper/releases/download/v#{version}/dotdipper-x86_64-apple-darwin.tar.gz"
-      sha256 "8c2e00dcb8479feb4bbe6ea334f00028d3fcfaf29e26211aa204ae236fb40482"
+      sha256 "b238723819da8c1834efce449d3224c2335b276b0963311086200ca0b1f62641"
     end
   end
 
