@@ -11,26 +11,26 @@
 class Dotdipper < Formula
   desc "A safe, deterministic, and feature-rich dotfiles manager built in Rust"
   homepage "https://github.com/psyysp/dotdipper"
-  version "0.5.0"
+  version "0.5.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/psyysp/dotdipper/releases/download/v#{version}/dotdipper-aarch64-apple-darwin.tar.gz"
-      sha256 "a815b49accdd30733bb2281d2dbc7650b242f5bc294e895cc8e46f2df535aba1"
+      sha256 "f5e5e1e7daeb9d890a361370106e3b5add9e6241c36eec902a8f3b9e2a3e199a"
     else
       url "https://github.com/psyysp/dotdipper/releases/download/v#{version}/dotdipper-x86_64-apple-darwin.tar.gz"
-      sha256 "a3a748e1cd427f009c481c9f4b18d63668cc23e11f26738692f4d1f0636a02b4"
+      sha256 "103896694d9b413b316e9e4fcc14d400033e6123dee636cc79b3173561835de5"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
       url "https://github.com/psyysp/dotdipper/releases/download/v#{version}/dotdipper-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "PLACEHOLDER_NEEDS_UPDATE"
+      sha256 "5d3ebce38db851c78376d6ab0c0f82e8c4a96196b51d0d9428db0f83279b2b32"
     else
       url "https://github.com/psyysp/dotdipper/releases/download/v#{version}/dotdipper-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "PLACEHOLDER_NEEDS_UPDATE"
+      sha256 "de98e8c7030015058e09c65fb4d4c381bf0651ee18c47865b83ca83bae9ab9b0"
     end
   end
 
