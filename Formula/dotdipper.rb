@@ -1,5 +1,5 @@
 # Homebrew Formula for Dotdipper
-# This formula installs pre-built binaries for macOS
+# This formula installs pre-built binaries for macOS and Linux
 #
 # To use this tap:
 #   brew tap psyysp/dotdipper
@@ -11,21 +11,30 @@
 class Dotdipper < Formula
   desc "A safe, deterministic, and feature-rich dotfiles manager built in Rust"
   homepage "https://github.com/psyysp/dotdipper"
-  version "0.4.0"
+  version "0.5.0"
   license "MIT"
 
   on_macos do
-    on_arm do
+    if Hardware::CPU.arm?
       url "https://github.com/psyysp/dotdipper/releases/download/v#{version}/dotdipper-aarch64-apple-darwin.tar.gz"
-      sha256 "f5f1f56eb1a059569bf7636d98568777fe3f7fc914cfd8c99e3ea78d9d9c49d5"
-    end
-    on_intel do
+      sha256 "a815b49accdd30733bb2281d2dbc7650b242f5bc294e895cc8e46f2df535aba1"
+    else
       url "https://github.com/psyysp/dotdipper/releases/download/v#{version}/dotdipper-x86_64-apple-darwin.tar.gz"
-      sha256 "062eef97f4e18710b8e21369595afe04defdd69eab16b4636f5515387191dc2b"
+      sha256 "a3a748e1cd427f009c481c9f4b18d63668cc23e11f26738692f4d1f0636a02b4"
     end
   end
 
-  depends_on :macos
+  on_linux do
+    if Hardware::CPU.arm?
+      url "https://github.com/psyysp/dotdipper/releases/download/v#{version}/dotdipper-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "PLACEHOLDER_NEEDS_UPDATE"
+    else
+      url "https://github.com/psyysp/dotdipper/releases/download/v#{version}/dotdipper-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "PLACEHOLDER_NEEDS_UPDATE"
+    end
+  end
+
+  # Age is required for secrets encryption feature
   depends_on "age"
 
   def install
@@ -49,7 +58,10 @@ class Dotdipper < Formula
   end
 
   test do
+    # Test that the binary runs and shows version
     assert_match "dotdipper", shell_output("#{bin}/dotdipper --version")
-    assert_match "dotfiles", shell_output("#{bin}/dotdipper --help")
+    
+    # Test that help works
+    assert_match "dotfiles manager", shell_output("#{bin}/dotdipper --help")
   end
 end
