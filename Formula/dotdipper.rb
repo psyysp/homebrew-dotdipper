@@ -11,28 +11,19 @@
 class Dotdipper < Formula
   desc "A safe, deterministic, and feature-rich dotfiles manager built in Rust"
   homepage "https://github.com/psyysp/dotdipper"
-  version "0.5.1"
+  version "0.7.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/psyysp/dotdipper/releases/download/v#{version}/dotdipper-aarch64-apple-darwin.tar.gz"
-      sha256 "f5e5e1e7daeb9d890a361370106e3b5add9e6241c36eec902a8f3b9e2a3e199a"
+      sha256 "6244baec08199de60815a67c2bac7f256c00817b8db9a3c9e07126f7d2edd689"
     else
       url "https://github.com/psyysp/dotdipper/releases/download/v#{version}/dotdipper-x86_64-apple-darwin.tar.gz"
-      sha256 "103896694d9b413b316e9e4fcc14d400033e6123dee636cc79b3173561835de5"
+      sha256 "38e889f643182375770a416e6d37f852b3c13ee4c074432764aa31f83b36f8eb"
     end
   end
-
-  on_linux do
-    if Hardware::CPU.arm?
-      url "https://github.com/psyysp/dotdipper/releases/download/v#{version}/dotdipper-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "5d3ebce38db851c78376d6ab0c0f82e8c4a96196b51d0d9428db0f83279b2b32"
-    else
-      url "https://github.com/psyysp/dotdipper/releases/download/v#{version}/dotdipper-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "de98e8c7030015058e09c65fb4d4c381bf0651ee18c47865b83ca83bae9ab9b0"
-    end
-  end
+  depends_on :macos
 
   # Age is required for secrets encryption feature
   depends_on "age"
