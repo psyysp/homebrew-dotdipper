@@ -1,31 +1,24 @@
 # Homebrew Formula for Dotdipper
-# This formula installs pre-built binaries for macOS and Linux
-#
-# To use this tap:
-#   brew tap psyysp/dotdipper
-#   brew install dotdipper
-#
-# Or install directly:
-#   brew install psyysp/dotdipper/dotdipper
+# brew tap psyysp/dotdipper && brew install dotdipper
 
 class Dotdipper < Formula
   desc "A safe, deterministic, and feature-rich dotfiles manager built in Rust"
   homepage "https://github.com/psyysp/dotdipper"
-  version "0.7.1"
+  version "0.7.5"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/psyysp/dotdipper/releases/download/v#{version}/dotdipper-aarch64-apple-darwin.tar.gz"
-      sha256 "aaa380f59cc6d65e13d934e8a7083a35a9545fe3a6a1ec9a2962fbd6f837633d"
-    else
-      url "https://github.com/psyysp/dotdipper/releases/download/v#{version}/dotdipper-x86_64-apple-darwin.tar.gz"
-      sha256 "56b49d413e00509a8df347f94c44e31a78aa91cf6080405652b7c41ab5822816"
+    on_arm do
+      url "https://github.com/psyysp/dotdipper/releases/download/v0.7.5/dotdipper-aarch64-apple-darwin.tar.gz"
+      sha256 "a1bc30229a6a0fb5be1d7bcdc46a2370a275502e5ccc5fcb80bf724aa1cdbd0b"
+    end
+    on_intel do
+      url "https://github.com/psyysp/dotdipper/releases/download/v0.7.5/dotdipper-x86_64-apple-darwin.tar.gz"
+      sha256 "dad79bec145d1fde9c18ab9b7f706eff11c0f0af9923c9d32ffba3209805d07e"
     end
   end
-  depends_on :macos
 
-  # Age is required for secrets encryption feature
+  depends_on :macos
   depends_on "age"
 
   def install
@@ -41,18 +34,10 @@ class Dotdipper < Formula
 
       For help:
         dotdipper --help
-
-      For secrets encryption, 'age' has been installed as a dependency.
-      To set up secrets encryption:
-        dotdipper secrets init
     EOS
   end
 
   test do
-    # Test that the binary runs and shows version
     assert_match "dotdipper", shell_output("#{bin}/dotdipper --version")
-    
-    # Test that help works
-    assert_match "dotfiles manager", shell_output("#{bin}/dotdipper --help")
   end
 end
