@@ -10,11 +10,11 @@ class Dotdipper < Formula
   on_macos do
     on_arm do
       url "https://github.com/psyysp/dotdipper/releases/download/v0.7.5/dotdipper-aarch64-apple-darwin.tar.gz"
-      sha256 "a1bc30229a6a0fb5be1d7bcdc46a2370a275502e5ccc5fcb80bf724aa1cdbd0b"
+      sha256 "daaf2665840c997c3e009d7b41db3dfe44922bb1b7b7eeef78f7636bc1bba13f"
     end
     on_intel do
       url "https://github.com/psyysp/dotdipper/releases/download/v0.7.5/dotdipper-x86_64-apple-darwin.tar.gz"
-      sha256 "dad79bec145d1fde9c18ab9b7f706eff11c0f0af9923c9d32ffba3209805d07e"
+      sha256 "d0e9b6fb00fc5bc405a1661e22a7bfe597405861227a7ce0b1e38d3b671f1714"
     end
   end
 
