@@ -6,28 +6,28 @@
 class Dotdipper < Formula
   desc "A safe, deterministic, and feature-rich dotfiles manager built in Rust"
   homepage "https://github.com/psyysp/dotdipper"
-  version "0.14.0"
+  version "0.15.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/psyysp/dotdipper/releases/download/v0.14.0/dotdipper-aarch64-apple-darwin.tar.gz"
-      sha256 "667de81fab3a95568a7d5634bfd47d4d4300f8c545d6ebcf460c2bd1c2b1b2de"
+      url "https://github.com/psyysp/dotdipper/releases/download/v0.15.0/dotdipper-aarch64-apple-darwin.tar.gz"
+      sha256 "97e61280a7d31f9e5675ac96e50cb77bc0b02ed3c40e1a25eb7b5e23c80161ab"
     end
     on_intel do
-      url "https://github.com/psyysp/dotdipper/releases/download/v0.14.0/dotdipper-x86_64-apple-darwin.tar.gz"
-      sha256 "c1c758f5061fe933a801acb017c5270fdd93db333c8960e2d5326ee729e127ff"
+      url "https://github.com/psyysp/dotdipper/releases/download/v0.15.0/dotdipper-x86_64-apple-darwin.tar.gz"
+      sha256 "3e95a1330623922d08c7bc06d7ee1b73f4604d9ad52c0acb2af0e0749988c404"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/psyysp/dotdipper/releases/download/v0.14.0/dotdipper-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "75022a60ed9bdcf0eb68d6f415564fc3f19075d1028ae6cf5c6b52ca688185e7"
+      url "https://github.com/psyysp/dotdipper/releases/download/v0.15.0/dotdipper-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "8c9a9bfd73329bb8d8fc4225e4cf2ea7d6c854bbdccbdd26d4384e7f05fea74e"
     end
     on_intel do
-      url "https://github.com/psyysp/dotdipper/releases/download/v0.14.0/dotdipper-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "07975c0d222901d98cbd5a015d296ab3390995d5ec6dbcf78a0cbebe289a8ff1"
+      url "https://github.com/psyysp/dotdipper/releases/download/v0.15.0/dotdipper-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "6eedbba37d1e32357dcd4f14353e35e6eda89290e25de33de148421b36e23af4"
     end
   end
 
